@@ -13,9 +13,12 @@ const ExpenseForm = () => {
 	});
 
 	const titleChangeHandler = (event) => {
-		setUserInput({
-			...userInput,
-			enteredTitle: event.target.value,
+		// setUserInput({
+		// 	...userInput,
+		// 	enteredTitle: event.target.value,
+		// });
+		setUserInput((prevState) => {
+			return { ...prevState, enteredTitle: event.target.value };
 		});
 	};
 
