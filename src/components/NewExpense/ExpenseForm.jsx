@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 	// const [enteredTitle, setEnteredTitle] = useState('');
 	// const [enteredAmount, setEnteredAmount] = useState('');
 	// const [enteredDate, setEnteredDate] = useState('');
@@ -39,12 +39,16 @@ const ExpenseForm = () => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 
-		const expenseDate = {
+		// ユーザー入力から、新規expenseData作成
+		const expenseData = {
 			title: userInput.enteredTitle,
 			amount: userInput.enteredAmount,
 			date: new Date(userInput.enteredDate),
 		};
-		console.log(expenseDate);
+
+		// 親関数。idを付与したデータ作成用
+		props.onSaveExpenseData(expenseData);
+
 		setUserInput({
 			enteredTitle: '',
 			enteredAmount: '',
