@@ -4,6 +4,14 @@ import Card from '../UI/Card';
 import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
 
+/* 
+	@parent: App.js
+	@props: items[]
+	@state: filteredYear
+
+	@child: ExpenseFilter.jsx ExpenseItem.jsx
+*/
+
 const Expenses = (props) => {
 	const [filteredYear, setFilteredYear] = useState('2020');
 

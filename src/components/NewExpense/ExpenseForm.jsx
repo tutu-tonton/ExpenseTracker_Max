@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
+/* 
+  @parent: NewExpenses.jsx
+  @props: onSaveExpenseData()
+
+*/
+
 const ExpenseForm = (props) => {
 	// const [enteredTitle, setEnteredTitle] = useState('');
 	// const [enteredAmount, setEnteredAmount] = useState('');
@@ -46,7 +52,7 @@ const ExpenseForm = (props) => {
 			date: new Date(userInput.enteredDate),
 		};
 
-		// 親関数。idを付与したデータ作成用
+		// 親関数NewExpense。idを付与したデータ作成用
 		props.onSaveExpenseData(expenseData);
 
 		setUserInput({
