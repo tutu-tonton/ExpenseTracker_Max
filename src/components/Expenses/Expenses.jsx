@@ -5,6 +5,7 @@ import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
 
 /* 
+	目的: フィルターコンポ & リスト出力
 	@parent: App.js
 	@props: items[]
 	@state: filteredYear
