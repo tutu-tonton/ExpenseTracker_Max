@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 /* 
 	@parent: App.js
@@ -19,24 +19,16 @@ const Expenses = (props) => {
 		setFilteredYear(selectedYear);
 	};
 
+	// 年フィルターに合致するものだけ抽出。子に渡す
 	const filteredExpenses = props.items.filter((expense) => {
 		return expense.date.getFullYear().toString() === filteredYear;
 	});
-
-	// フィルターされたコンテンツ表示　-　条件合致なしの場合はメッセージ表示
-	let expensesContent = <p>No expenses found.</p>;
-
-	if (filteredExpenses.length > 0) {
-		expensesContent = filteredExpenses.map((expense) => (
-			<ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} />
-		));
-	}
 
 	return (
 		<div>
 			<Card className="expenses">
 				<ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-				{expensesContent}
+				<ExpensesList items={filteredExpenses} />
 			</Card>
 		</div>
 	);
