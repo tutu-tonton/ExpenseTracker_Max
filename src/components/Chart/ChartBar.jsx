@@ -1,11 +1,12 @@
 import React from 'react';
 
-import './Chart.css';
+import './ChartBar.css';
 
 const ChartBar = (props) => {
 	let barFillHeight = '0%';
 
-	if (props.max > 0) {
+	// 最大値に対する割合で表現したい
+	if (props.maxValue > 0) {
 		barFillHeight = Math.round((props.value / props.maxValue) * 100) + '%';
 	}
 

@@ -49,7 +49,7 @@ const ExpenseForm = (props) => {
 		// ユーザー入力から、新規expenseData作成
 		const expenseData = {
 			title: userInput.enteredTitle,
-			amount: userInput.enteredAmount,
+			amount: +userInput.enteredAmount,
 			date: new Date(userInput.enteredDate),
 		};
 
